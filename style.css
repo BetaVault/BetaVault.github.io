@@ -987,6 +987,10 @@ li,
   body.menu-open {
     overflow: hidden;
   }
+  
+  html {
+	  overflow-x: hidden;
+  }
 
   /* Add overlay when menu is open */
   .menu-overlay {
