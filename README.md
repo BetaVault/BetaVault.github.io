@@ -1,2 +1,4 @@
 # BetaVault.github.io
-a
+An alternative to the infamous BetaArchive
+
+better README coming soon.
