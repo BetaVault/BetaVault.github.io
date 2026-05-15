@@ -68,15 +68,27 @@
           Github Repo, or report it in the #bugs section in our <a href="https://discord.gg/sKNnJANhpd">Discord Server</a>.</p>
           <p>This project is currently 0.003% complete (please help us expand by <a href="/contribute.html">Contributing</a>)</p>
           <p>Created by: XenonWindows (aka MSNeptuned, Threshold)</p>
-          <span>Contributors:</span>
-          <ul>
-            <li><a href="https://github.com/viradex">Viradex</a></li>
-            <li><a href="https://github.com/XenonWindows">XenonWindows</a> (aka MSNeptuned, Threshold)</li>
-            <li><a href="https://github.com/7zeb">7Zeb</a> (aka RutwikasZeb, Rutwik City)</li>
-            <li><a href="https://github.com/jpb896">jpb</a> (aka <a href="https://github.com/jpbandroid">jpbandroid</a>, plasmafan123, Anaheim)</li>
-            <li><a href="https://www.youtube.com/channel/UCJolWMsAnLAibQ3BcwaXmLw">NotHype</a></li>
-          </ul>
         </section>
+
+        <section id="leaderboard">
+  <h2>Top Contributors</h2>
+  <ol id="contrib-list"></ol>
+</section>
+<script>
+  fetch('https://api.github.com/repos/BetaVault/BetaVault.github.io/contributors')
+    .then(response => response.json())
+    .then(data => {
+      const ul = document.getElementById('contrib-list');
+      data.forEach(contrib => {
+        const li = document.createElement('li');
+        li.innerHTML = `<img src="${contrib.avatar_url}" width="32" style="vertical-align:middle;border-radius:16px;"> <a href="${contrib.html_url}">${contrib.login}</a> — ${contrib.contributions} commits`;
+        ul.appendChild(li);
+      });
+    })
+    .catch(() => {
+      document.getElementById('leaderboard').innerHTML += "<p>Could not load contributors at this time.</p>";
+    });
+</script>
       </div>
       <aside class="info-box">
         <h3>How you can help BetaVault</h3>
